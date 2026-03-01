@@ -1,0 +1,23 @@
+# Dependencies
+/vendor
+/backend/vendor
+/frontend/node_modules
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build outputs
+/frontend/dist

@@ -8,7 +8,3 @@ Route::post('/login', [AuthController::class, 'login']); // Login
 Route::post('/register', [AuthController::class, 'register']); // Register
 Route::get('/getUser', [AuthController::class, 'getUser']); // Get the authenticated user
 Route::post('/logout', [AuthController::class, 'logout']); // Logout
-
-// Protected authentication routes
-Route::middleware('auth:sanctum')->group(function () {
-});

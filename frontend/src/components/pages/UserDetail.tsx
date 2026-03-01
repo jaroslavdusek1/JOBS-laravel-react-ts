@@ -77,9 +77,23 @@ const UserDetail: React.FC = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('BE endpoint ready, but NOT IMPLEMENTED on FE, SORRY :-{', formData);
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/${user?.id}`, {
+                method: 'PUT',
+                headers: DEFAULT_HEADERS_AUTH,
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                setError(errorData.error || 'Failed to update user.');
+            }
+        } catch (err: any) {
+            setError(err.message || INTERNAL_ERROR_500);
+        }
     };
 
     return (

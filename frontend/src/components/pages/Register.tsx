@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner';
 import { UserFormData } from '../../types/Types';
-import { Message as MessageType } from '../../types/Message';
+import { Message as MessageType } from '../../types/Types';
 import { sanitizeInput, validateForm } from '../../utils/validations';
 import {
     API_BASE_URL,
@@ -28,7 +28,7 @@ const Register: React.FC = () => {
      *
      * @type {UserFormData}
      */
-    const initialFormData: User = {
+    const initialFormData: UserFormData = {
         name: '',
         surname: '',
         username: '',

@@ -9,7 +9,7 @@
  const ViewAllJobsButton: React.FC = () => {
      return (
          <section className="button-container">
-             <a href="jobs.html" className="view-all-jobs-button">
+             <a href="/" className="view-all-jobs-button">
                  View All Jobs
              </a>
          </section>
