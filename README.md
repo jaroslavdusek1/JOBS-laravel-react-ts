@@ -63,6 +63,12 @@ JOBS/
 │   │       ├── jobs.php
 │   │       └── users.php
 │   └── tests/
+│       ├── Unit/
+│       │   ├── JobModelTest.php
+│       │   └── UserModelTest.php
+│       └── Feature/
+│           ├── AuthApiTest.php
+│           └── JobApiTest.php
 │
 ├── frontend/                       # React 19 SPA
 │   ├── Dockerfile
@@ -260,6 +266,36 @@ Interactive Swagger documentation is available at [http://localhost:8000/api/doc
 
 ### API Routes Overview
 ![API Routes](frontend/public/imgs/artisan_routes.png)
+
+---
+
+## Testing
+
+The backend includes unit and feature tests using **PHPUnit** with an **SQLite in-memory** database.
+
+### Run all tests
+
+```bash
+docker exec jobs-backend php artisan test
+```
+
+### Test suites
+
+| Suite   | Tests                           | Coverage                                       |
+|---------|---------------------------------|------------------------------------------------|
+| Unit    | `JobModelTest`, `UserModelTest` | Model attributes, relationships, casts         |
+| Feature | `AuthApiTest`, `JobApiTest`     | Registration, login, CRUD, auth guards         |
+
+### Example output
+
+```
+ PASS  Tests\Unit\JobModelTest (3 tests)
+ PASS  Tests\Unit\UserModelTest (5 tests)
+ PASS  Tests\Feature\AuthApiTest (7 tests)
+ PASS  Tests\Feature\JobApiTest (6 tests)
+
+ Tests:  23 passed (32 assertions)
+```
 
 ---
 
